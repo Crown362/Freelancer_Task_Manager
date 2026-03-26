@@ -1,0 +1,14 @@
+{
+  "users": [
+    { "id": 1, "username": "john123", "password": "pass123" },
+    { "id": 2, "username": "sara_dev", "password": "sara@456" },
+    { "id": 3, "username": "mike007", "password": "mike007!" },
+    { "id": 4, "username": "admin", "password": "admin@123" },
+    { "id": 5, "username": "taskmaster", "password": "task@2024" },
+    { "id": 6, "username": "raj_user", "password": "raj@321" },
+    { "id": 7, "username": "frontend_pro", "password": "front@dev" },
+    { "id": 8, "username": "debug_king", "password": "debug#999" },
+    { "id": 9, "username": "ui_master", "password": "ui@design" },
+    { "id": 10, "username": "test_user", "password": "test@000" }
+  ]
+}

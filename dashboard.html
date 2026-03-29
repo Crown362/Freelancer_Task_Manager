@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="dashboard.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body id="dashboardBody">
+    <div class="container">
+        <div class="logoContainer">
+            <div class="logo">
+                <i class="fa-regular fa-gem"></i>
+                <h2>Task Manager</h2>
+            </div>
+            <div class="searchbar">
+                <input type="search" name="search" id="search">
+                <i class="fa fa-search"></i>
+            </div>
+        </div>
+        <br/>
+        <hr/>
+        <div class="mainContainer">
+            <div class="sidebar">
+                <div class="catagory">
+                    <button>DashBoard</button>
+                </div>
+                <div class="catagory">
+                    <button>Projects</button>
+                </div>
+                <div class="catagory">
+                    <button id="logout">logout</button>
+                </div>
+                
+            </div>
+            <div class="taskContainer">
+                <div class="titlebar"></div>
+                <div class="dataContainer">
+                    <div class="todo">todo</div>
+                    <div class="inProgress">inprogress</div>
+                    <div class="done">done</div>
+                </div>
+            </div>
+        </div>
+        <!-- <h2>dashboard</h2> -->
+        
+        
+    </div>
+    <script type="module" src="dashboard_script.js"></script>
+</body>
+</html>

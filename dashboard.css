@@ -7,7 +7,7 @@ body{
     /* background-color: blue; */
     background: linear-gradient(to bottom left, #4A90E2 ,#2148C0, #103193);
     background-repeat: no-repeat;
-    height: 100vh;
+    height: auto;
     width: 100%;
     /* max-width: 1200px; */
 }
@@ -80,9 +80,11 @@ body{
     flex:7;
 }
 .titlebar{
-    width: 100%;
-    border: 1px solid red;
-    margin: 5px;   
+    width: 98%;
+    /* border: 1px solid red; */
+    margin: 9.3px;
+    display: flex;
+    justify-content: end;
 }
 .dataContainer{
     display: flex;
@@ -93,18 +95,99 @@ body{
 
 .todo,.inProgress,.done{
     flex:1;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     box-shadow: 2px 4px 8px rgba(0,0,0,0.4);
     background-color: aliceblue;
     font-weight: bold;
-    /* height: auto;
-    max-height: 90vh; */
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
+    height: 70vh;
     font-size: large;
-    /* overflow: scroll; */
+    text-transform: capitalize;
     margin-right:0.7rem;
+    display: block;
+    /* margin: 0 auto; */
+    /* text-align: center; */
+}
+.createTask{
+    padding: 12px 30px;
+    letter-spacing:0.3rem;
+    background-color: crimson;
+    color:white;
+    border: none;
+    /* float: right; */
+    cursor: pointer;
+}
+#logout{
+    padding: 12px 30px;
+    /* letter-spacing:0.3rem; */
+    background-color: crimson;
+    color:white;
+    border: none;
+    /* float: right; */
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 80%;
 }
 
+
+.formContainer{
+    display: none;
+    position: fixed;
+    width:100%;
+    max-width: 400px;
+    height: 300px;
+    background-color: aliceblue;
+    top:0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transform: translate(160%,50%);
+    background: rgba(47, 46, 46, 0.6);
+}
+.formFields{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10%;
+    color:white;
+    font-weight: bold;
+    /* border: 1px solid red; */
+}
+.formFields label{
+    flex:3;
+    margin: 5%;
+}
+.formFields #formTask{
+    flex:7;
+    padding: 12px 45px;
+}
+#formSubmit{
+    /* width: 100px; */
+    display: block;
+    margin: 0 auto;
+    padding: 12px 30px;
+    background-color: crimson;
+    color:white;
+    outline: none;
+    cursor: pointer;
+}
+
+#close-btn{
+    /* display: block; */
+    /* margin: 0 auto; */
+    float: right;
+    margin: 2% 5% 2% 0;
+    color: white;
+    /* background-color: crimson; */
+    cursor: pointer;
+}
+
+.formContainer.showForm{
+    display: block;
+}
+.todo p{
+    background-color: #d1d1d7;
+    box-shadow: 4px 2px rgba(0,0,0,0.4);
+    margin-top: 5px;
+    padding: 10px;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
+}

@@ -1,0 +1,110 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    /* background-color: blue; */
+    background: linear-gradient(to bottom left, #4A90E2 ,#2148C0, #103193);
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    /* max-width: 1200px; */
+}
+.logoContainer{
+    /* width: 100%; */
+    display: flex;
+    justify-content:center;
+    flex-direction: row;
+}
+.logo{
+    flex:3;
+    margin: 2rem 0 0 5rem;
+    display: flex;
+    justify-content:flex-start;
+    /* flex-direction: column; */
+    color:white;
+}
+.logo i, .logo h2{
+    font-size: 1.5rem;
+    margin: 5px;
+}
+
+.searchbar{
+    width: 60%;
+    margin-top: 2.7rem;
+    margin-right: 5rem;
+    display: flex;
+    justify-self: start;
+    border: 1px solid black;
+    flex:7;
+}
+#search{
+    width: 100%;
+    background: transparent;
+    border: none;
+}
+.searchbar i{
+    font-size:20px;
+    margin:5px 2px 5px 5px;
+}
+.mainContainer{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    /* border: 1px solid red; */
+    /* flex:1; */
+    margin:2% 5%;
+}
+.sidebar{
+    border-right:1px solid black;
+    margin: 5px;
+    flex:3;
+}
+.catagory{
+    margin:4px 0 10% 5px;
+}
+.catagory button{
+    border: none;
+    background: transparent;
+    color:white;
+    font-size: large;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.catagory button:active{
+    text-decoration: underline;
+}
+.taskContainer{
+    /* border:1px solid green; */
+    flex:7;
+}
+.titlebar{
+    width: 100%;
+    border: 1px solid red;
+    margin: 5px;   
+}
+.dataContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.todo,.inProgress,.done{
+    flex:1;
+    border: 1px solid black;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.4);
+    background-color: aliceblue;
+    font-weight: bold;
+    /* height: auto;
+    max-height: 90vh; */
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    font-size: large;
+    /* overflow: scroll; */
+    margin-right:0.7rem;
+}
+

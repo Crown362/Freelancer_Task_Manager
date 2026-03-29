@@ -4,15 +4,18 @@
     box-sizing: border-box;
 }
 body{
-    background-color: blue;
+    /* background-color: blue; */
+    background: linear-gradient(to left bottom, #4A90E2 40%,#2148C0, #103193);
     display: flex;
+    background-repeat: no-repeat;
     justify-content: center;
+    height: 100vh;
 }
 .container{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10%;
+    /* margin-top: 5%; */
     width: 100%;
     max-width: 600px;
     flex-direction: column;
@@ -31,7 +34,8 @@ body{
 #username,#password{
     padding: 1rem;
     /* border:1px solid white; */
-    background-color: blue;
+    /* background-color: #4A90E2; */
+    background: transparent;
     color:white;
     text-decoration: none;
     width: 100%;

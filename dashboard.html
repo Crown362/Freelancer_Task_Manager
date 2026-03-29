@@ -36,17 +36,32 @@
                 
             </div>
             <div class="taskContainer">
-                <div class="titlebar"></div>
+                <div class="titlebar">
+                    <button class="createTask" id="task">Add Task</button>
+                </div>
                 <div class="dataContainer">
-                    <div class="todo">todo</div>
-                    <div class="inProgress">inprogress</div>
-                    <div class="done">done</div>
+                    <div class="todo" id="todos">
+                        <h3>todo</h3></div>
+                    <div class="inProgress" id="inProgress">inprogress</div>
+                    <div class="done" id="done">done</div>
                 </div>
             </div>
         </div>
-        <!-- <h2>dashboard</h2> -->
-        
-        
+        <!--Add Task form here -->
+        <div class="formContainer" id="addTask">
+            <div class="closeButton" id="close-btn">X</div>
+            <form >
+                <div class="formFields">
+                    <label for="task">Task</label>
+                    <input type="text" name="task" id="formTask" />
+                </div>
+                <!-- <div class="formFields">
+                    <label for="newProject">Task</label>
+                    <input type="text" name="newProject" id="newProject" />
+                </div> -->
+                <input type="submit" id="formSubmit" value="Add Task">
+            </form>
+        </div>
     </div>
     <script type="module" src="dashboard_script.js"></script>
 </body>

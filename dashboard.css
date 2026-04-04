@@ -190,3 +190,18 @@ body{
     letter-spacing: 0.2rem;
     cursor: pointer;
 }
+.addIn{
+    /* margin: 5px; */
+    /* color:white; */
+    float: right;
+    /* font-weight: bolder; */
+    font-size: 25px;
+}
+.inProgress p{
+    background-color: #acdfac;
+    box-shadow: 4px 2px rgba(153, 225, 131, 0.4);
+    margin-top: 5px;
+    padding: 10px;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
+}

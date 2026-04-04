@@ -5,18 +5,46 @@ const closeTaskButton = document.getElementById("close-btn");
 const taskSubmitButton = document.getElementById("formSubmit");
 const taskListContainer = document.getElementById("todos");
 const taskInputField = document.getElementById("formTask");
-const addInprogress = document.getElementById("addIn");
+const inprogressContainer = document.getElementById("inProgress");
+const doneContainer = document.getElementById("done");
+// const addInprogress = document.querySelectorAll(".addIn");
 
 
 logoutButton.addEventListener("click", handleLogout);
 openTaskButton.addEventListener("click", openTaskModal);
 closeTaskButton.addEventListener("click", closeTaskModal);
 taskSubmitButton.addEventListener("click", handleTaskSubmit);
-// addInprogress.addEventListener("click", inProgressFunc);
 
-// function inProgressFunc{
-
-// }
+document.addEventListener("click", function (e) {
+        let localTask = JSON.parse(localStorage.getItem("task")) || [];
+        let inprogressTask = JSON.parse(localStorage.getItem("inTask")) || [];
+        let doneTask = JSON.parse(localStorage.getItem("completedTask"))||[];
+    if (e.target.classList.contains("addIn")) {
+        const taskId = e.target.dataset.id;
+        // find the task
+        const selectedTask = localTask.find(task => task.id == taskId);
+        if (selectedTask) {
+            inprogressTask.push(selectedTask);
+            // remove from localTask
+            localTask = localTask.filter(task => task.id != taskId);
+              e.target.parentElement.remove();
+              reloadDisplay();
+        }
+    }else if(e.target.classList.contains("moveIn")){
+        const taskId = e.target.dataset.id;
+        const completedTask = inprogressTask.find(t => t.id == taskId);
+        if(completedTask){
+            doneTask.push(completedTask);
+            inprogressTask = inprogressTask.filter(t =>t.id != taskId);
+            e.target.parentElement.remove();
+            reloadDisplay();
+        }
+    }
+      // update storage
+            localStorage.setItem("task", JSON.stringify(localTask));
+            localStorage.setItem("inTask", JSON.stringify(inprogressTask));
+            localStorage.setItem("completedTask",JSON.stringify(doneTask));
+});
 
 function handleLogout(e) {
     e.preventDefault();
@@ -33,14 +61,11 @@ function closeTaskModal() {
 }
 
 function handleTaskSubmit(e) {
-    try {
+    // try {
         e.preventDefault();
         closeTaskModal();
-
         const taskValue = taskInputField.value;
-        if(taskValue.trim()===""){
-            return;
-        }
+        if(taskValue.trim()===""){return;}
         let id = Date.now();
         console.log(id)
         const taskObj={
@@ -50,33 +75,46 @@ function handleTaskSubmit(e) {
         let localTask = JSON.parse(localStorage.getItem("task"))||[];
         localTask.push(taskObj);
         localStorage.setItem("task",JSON.stringify(localTask));
-       const taskElement = document.createElement("p");
-       taskElement.dataset.id=id;
-       const addButton = document.createElement("span");
-       addButton.textContent = "+";
-       addButton.classList.add("addIn");
-        taskElement.textContent =taskValue; 
-        taskElement.appendChild(addButton);
-        taskListContainer.appendChild(taskElement);
+        reloadDisplay();
         taskInputField.value = "";
-    } catch (error) {
-        console.error(error);
-    }
+    // } catch (error) {
+    //     console.error(error);
+    // }
 }   
 //onScreen load show the localstorage value
  window.addEventListener("DOMContentLoaded",loadDatafromLocalStorage)
 function loadDatafromLocalStorage(){
         // taskListContainer.textContent="";
         let localTask = JSON.parse(localStorage.getItem("task"))||[];
+        let inprogressTask = JSON.parse(localStorage.getItem("inTask")) || [];
+        let doneTask = JSON.parse(localStorage.getItem("completedTask"))||[];
+
         localTask.forEach(element => {
-            const taskElement = document.createElement("p");
-            taskElement.dataset.id=element.id;
-            taskElement.textContent = element.value;
-            //first set the text and then only append the button
-            const addButton = document.createElement("span");
-            addButton.textContent = "+";
-            addButton.classList.add("addIn"); 
-            taskElement.appendChild(addButton);
-            taskListContainer.appendChild(taskElement);
+            const el = createTaskElement(element.value, element.id, "+","addIn");
+            taskListContainer.appendChild(el);
         });
+        inprogressTask.forEach(element=>{
+           const elProgress = createTaskElement(element.value, element.id, "*","moveIn");
+            inprogressContainer.appendChild(elProgress);
+        });
+        doneTask.forEach(element=>{
+            const elCompleted = createTaskElement(element.value,element.id,"-","comIn");
+            doneContainer.appendChild(elCompleted);
+        })
+
     } 
+function createTaskElement(value,id,symbol,className){
+     const p = document.createElement("p");
+    p.textContent = value;
+
+    const btn = document.createElement("span");
+    btn.textContent = symbol; // ← difference handled here
+    btn.classList.add(className);
+    btn.dataset.id = id;
+
+    p.appendChild(btn);
+    return p;
+}
+function reloadDisplay(){
+    location.reload();
+}
